@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>FlowScripts - HTML Made Easy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/jpg" href="https://i.ibb.co/xMnzd6n/imagecool-9.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>@font-face {
+  font-family: Nunitosemi;
+  src: url(fonts/Nunito-SemiBold.ttf);}
+  @font-face {
+  font-family: pagetext;
+  src: url(fonts/Montserrat-SemiBold.ttf);}
+
+  @font-face {
+  font-family: linksfont;
+  src: url(fonts/Poppins-Medium.ttf);}
+
+a{font-family: 'linksfont';}
+
+  h1{
+    font-family: 'Nunitosemi',Arial, Helvetica, sans-serif;
+
+  }
+
+p{
+  font-family: 'pagetext',Arial, Helvetica, sans-serif;
+} 
+h2{
+  font-family: 'pagetext',Arial, Helvetica, sans-serif;
+} 
+h3{
+  font-family: 'pagetext',Arial, Helvetica, sans-serif;
+} 
+h4{
+  font-family: 'pagetext',Arial, Helvetica, sans-serif;
+} 
+h5{
+  font-family: 'pagetext',Arial, Helvetica, sans-serif;
+} 
+h6{
+  font-family: 'pagetext',Arial, Helvetica, sans-serif;
+} 
+
+</style>
+    <style>
+        body {
+            margin: 0;
+         
+        }
+
+        .navbar {
+          width: 99%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgb(0,154,255);
+            background: linear-gradient(131deg, rgba(0,154,255,1) 0%, rgba(43,0,255,1) 22%, rgba(43,0,255,1) 100%);;
+            padding: 10px;
+            color: white;
+         
+          
+          
+          }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+        }
+
+        .link-desktop:hover {
+          border-top-right-radius: 20px;
+          border-top-left-radius: 20px;
+          border-bottom-right-radius: 15px;
+          border-bottom-left-radius: 15px;
+            background-color: #484eff;
+        }
+
+        .navbar .brand {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+        }
+
+        @media screen and (max-width: 600px) {
+            .menu {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+            }
+
+            .menu a {
+                text-align: center;
+                padding: 10px;
+                border-top: 1px solid #575757;
+            }
+
+            .menu.show {
+                display: flex;
+            }
+
+            .navbar .toggle-button {
+                display: inline-block;
+                cursor: pointer;
+            }
+        }
+
+        @media screen and (min-width: 601px) {
+            .navbar .toggle-button {
+                display: none;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .close {
+            color: #1e00ff;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: rgb(70, 70, 70);
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="brand">
+          <img style="height:50px;" src="https://i.ibb.co/KXdNMBt/Untitled5.png" alt="FlowScripts"></div>
+       <a href="https://flowscripts.github.io/account"> 
+        <div class="toggle-button">Home</div>
+      </a>  <div class="menu">
+            <a class="link-desktop" href="https://flowscripts.github.io/home">Home</a>
+          
+            <a class="link-desktop" href="https://flowscripts.github.io/templates">Templates</a>
+            <a class="link-desktop" href="https://flowscripts.github.io/account">Account</a>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div style="box-shadow: 10px 4px 25px -10px rgba(0,0,0,0.88);
+        -webkit-box-shadow: 10px 4px 25px -10px rgba(0,0,0,0.88);
+        -moz-box-shadow: 10px 4px 25px -10px rgba(0,0,0,0.88);" class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h1>Notice</h1>
+            <h5>To use this feature, please <a href="https://flowscripts.github.io/register">Register</a> or <a href="https://flowscripts.github.io/register">Login.</a></h5>
+            <button  style="background: rgb(0,94,255);
+background: linear-gradient(131deg, rgba(0,94,255,1)
+ 0%, rgba(43,0,255,1) 12%, rgba(43,0,255,1) 100%); 
+ 
+ border-radius: 20px; color: white;
+
+ " onclick="closeModal()"><h2>Ok</h2></button>
+           <!-- Add your menu items here -->
+
+        </div>
+    </div>
+
+
+    <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+<style>
+
+.back-menu1{
+padding: 2px;
+background-color: #1e00ff;
+color: white;
+border-radius: 20px;
+border-color: #fefefe00;
+
+}
+
+</style>
+
+    <button class="back-menu1" onclick="goBack()"><h3>← Back</h3></button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+
+<br>
+<div style="background-color: #dddddd;">
+
+<div class="container23">
+    <img src="https://i.ibb.co/hHCPLjC/Adobe-Stock-215844325-1.webp"   style="width: 100px;border-radius: 100px;">
+
+    <h4 style="padding-left: 15px;">You are not signed in! <a href="https://flowscripts.github.io/register">Create an account</a> or<a href="https://flowscripts.github.io/login"> login.</a></h4>
+</div>
+
+</div>
+
+<br><br>
+
+
+
+
+<style>/* styles.css */
+    .container3 {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .box {
+        width: 45%;
+        padding: 10px;
+      
+        
+        text-align: center;
+    }
+    </style>
+    <div class="container3">
+        <div class="box"><div style="background-color: #dddddd; width: 80%;"><h2 style="padding-left: 10px;">Find Users</h2>
+
+            <input style="padding: 5px; border-radius: 8px; border-color: #fefefe00;" type="text" placeholder="Enter Username"><h4><button style="border-color: #fefefe00;border-radius: 5px; padding: 5px;" onclick="openModal()"><b>⌕ Search</b></button>
+                <br></h4>
+            <br>
+            </div></div>
+        <div style="border-radius: 10px; background-color: #545454; color: white;" class="box"><h3>Liked Templates</h3>
+           
+
+            <h3 style="color:rgb(153, 153, 153);text-decoration: dotted;">[ none ]</h3>
+            
+  
+        </div>
+        </div>
+        
+        </div>
+        
+    </div>
+
+
+
+        <style>
+            .container23 {
+                display: flex;
+                align-items: center; /* Vertically center the content */
+            }
+            .container img {
+                margin-right: 10px; /* Adds space between the image and text */
+            }
+        </style>
+    </head>
+    <body>
+<br>
+<br>
+<h6>To access all features, <a href="https://flowscripts.github.io/register">Register</a> or <a href="https://flowscripts.github.io/login">login</a></h6>
+
+    
+</body>
+</html>
